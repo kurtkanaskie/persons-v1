@@ -4,7 +4,7 @@ info:
   title: Persons Design Pattern
   description: Shows Persons collection RESTful design pattern. Used in API Sheet App.
 servers:
-  - url: 'https://amer-demo13-test.apigee.net/example/v1'
+  - url: 'https://amer-demo13-test.apigee.net/v1'
 paths:
   /persons:
     get:
