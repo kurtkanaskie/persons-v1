@@ -5,12 +5,14 @@ Mock uses a KVM with an initial value of the data structure for Appsheet.
 
 ## Install
 Using Apigeetool
-
+```
 export ORG=YOUR_ORG
 export ENV=test
 
-1. apigeetool createkvmmap --netrc -o $ORG -e $ENV --mapName persons-v1-mock
-2. apigeetool deployproxy --netrc -o $ORG -e $ENV -n persons-v1-mock -d ./persons-v1-mock
+apigeetool createkvmmap --netrc -o $ORG -e $ENV --mapName persons-v1-mock
+apigeetool deployproxy --netrc -o $ORG -e $ENV -n persons-v1-mock -d ./persons-v1-mock
+apigeetool deployproxy --netrc -o $ORG -e $ENV -n persons-v1 -d ./persons-v1
+```
 
 ### Setup API Key Validation in Apigee (optional, only if you want to use the VA-Header policy)
 1. Create your API Proxy and add a Verify API Key policy for the x-apikey header.
