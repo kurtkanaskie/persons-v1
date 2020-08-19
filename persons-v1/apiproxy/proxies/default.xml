@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <Flows>
+        <Flow name="OAS.yaml">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-OAS.yaml</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/oas.yaml") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="OAS.json">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-OAS.json</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/oas.json") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="getPersons">
+            <Description>Returns list of existing persons.</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="createPerson">
+            <Description>Create a new person.</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-PersonData</Name>
+                </Step>
+                <Step>
+                    <Condition>(personId == null)</Condition>
+                    <FaultRules/>
+                    <Name>RF-MissingRequiredContent</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="updatePerson">
+            <Description>Update an existing person via AppSheet.</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-PersonData</Name>
+                </Step>
+                <Step>
+                    <Condition>(personId == null)</Condition>
+                    <FaultRules/>
+                    <Name>RF-MissingRequiredContent</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="getPersonByID">
+            <Description>Return details for an existing person.</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="updatePersonByID">
+            <Description>Update an existing person.</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="deletePersonByID">
+            <Description>Delete an existing person.</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="cors">
+            <Description>ignore OPTIONS request</Description>
+            <Request/>
+            <Response/>
+            <Condition>(request.verb = "OPTIONS") and (proxy.pathsuffix MatchesPath "*")</Condition>
+        </Flow>
+        <Flow name="notFound">
+            <Description/>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-NotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>VA-Header</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/persons</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="cors">
+        <Condition>(request.verb == "OPTIONS")</Condition>
+    </RouteRule>
+    <RouteRule name="oas">
+        <Condition>(proxy.pathsuffix MatchesPath "/oas.*") and (request.verb = "GET")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

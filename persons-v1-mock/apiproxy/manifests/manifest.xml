@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-Person" version="SHA-512:beb5dad5bc4a0e7ac89074289b7b270a12d17fa34990c891c1dcbf09294afa8c4dbb4fa2c3546572ac38dc1d58f74742321e296bb686069f75380f253e6d7e9a"/>
+        <VersionInfo resourceName="AM-PersonCreated" version="SHA-512:653f57d8857392e5771941ed7bf4a8a44605cdb1d3d9a39ec055c41a9aacb25c14f45b2d770e04490854c12d40742e9cef27eeb22a07b680935aafacaa9dd7d6"/>
+        <VersionInfo resourceName="AM-Persons" version="SHA-512:b7795611578624024699c498efcb8a45100a937ea6b82187ed4fc6e5cdaee9134bba2e6b39a21098beb1fcf7dfc62b6d1fd394dbce9d5e021635935100b37f56"/>
+        <VersionInfo resourceName="EV-PersonData" version="SHA-512:a149f98fd5567564187364753aa9a8e332ed2f459b503976642276483ab338d03ffdeff9dc2f7b8335bd09db676c4900b093bbe1c3d7b2ffd01a65ec8ed9a4a7"/>
+        <VersionInfo resourceName="EV-PersonId" version="SHA-512:2f367d124520d136b13d4540d70bd2fe814e67bdcaef05c16147412b38c3647a389832c2dc706bad895df09f9400751d1390352333e71348159ef2f5542542e1"/>
+        <VersionInfo resourceName="JS-CreatePerson" version="SHA-512:2793cad046738b31ad8d349af99f864e580e14f90dff62e49080b5d968162d721c9a9ca6bc8845ec28012dce890bbd0a1d0904805271d7a1e4be7a7963ee422c"/>
+        <VersionInfo resourceName="JS-DeletePerson" version="SHA-512:6f26cb0b08ddcb7d447fec30ca5e67e518572c1099e4051b02dec943d79f48e958b8d228297001de602a8fc83cf64ea9290ec1429f61290d4689c69d8a7c1526"/>
+        <VersionInfo resourceName="JS-GetPerson" version="SHA-512:bba77aa4e5d432322f88a5c096fb7dc9488de97cf7558302c68b14e563f11a472c99d688bf84f8416e8fdd609c146f82e0f256289207438e47b82a4aba9d57b9"/>
+        <VersionInfo resourceName="KV-GetPersons" version="SHA-512:fc5eda7c4cb177ef6ea0aed2aac7de38833f51c8034bccb916fea63de191d0eb5ee0b1cad2a097954061027f9f1f903b5da1ea4ce7a050cad05c6994425862a6"/>
+        <VersionInfo resourceName="KV-UpdatePersons" version="SHA-512:ce406c7b4ea2a9f30d8fac2997408526f6f8793ac025e2b545ec608d8bf40ab6fb56a85dcb5e827d6aafb61e7597b5e736975553d75411ace392eb3f99e116db"/>
+        <VersionInfo resourceName="RF-CatchAll" version="SHA-512:3d62345c82df64817f68ceff7a877ab6e1b30cc9416c5fc9007b417458510a86e57d87fa4b6ce89d0984c74473596be226d7be741ad90459d452eb349191f1c4"/>
+        <VersionInfo resourceName="RF-PersonNotFound" version="SHA-512:698f1c12e31777d027066ca76022a191981565dfc310607f85fd9c931889e01b811e51a1c76c3c128104fbbe3672ba159496063405f8839aec49acfeb6fc2e4f"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:904681bf0aef107c2d7d1498724a17a3d7635e0dfda799665facd0495d4845827c3fe40a9dffea0df312d2099649caedae5657dabcec3c62b966ba28fc58c7e1"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://JS-CreatePerson.js" version="SHA-512:78cfe9f64994d7fa305897e3c2c2e00fc1f460bfb7c1db9d809a8d2afd7dbd126dce364d98bbbe52518af37239f7f3d9c869476109eb9d027a7edaeecc7e04d3"/>
+        <VersionInfo resourceName="jsc://JS-DeletePerson.js" version="SHA-512:8cffd4f4a4703581a8a0b9022713a825a36a2cb5e0f1b837675f4a4435709d248d764b78f872931e6c11142c84267599da5bca38703bf7b87a2d0d048e89817d"/>
+        <VersionInfo resourceName="jsc://JS-GetPerson.js" version="SHA-512:b2812faba71ea68157b2a7df7087ef0439b84a49999cfda5e7aad33b83e1ea40b69dbad4e16989a050eb9e8adadb6da368c059b43749b64de90f953771b3e162"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>

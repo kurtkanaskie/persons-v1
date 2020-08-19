@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="17" name="persons-v1">
+    <Basepaths>/collection-persons</Basepaths>
+    <Basepaths>/example/v1</Basepaths>
+    <Basepaths>/v1/persons</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1597870460032</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>Demo design pattern - Use this with App Sheet - as it expects a PUT to go against /persons not /persons/{id}</Description>
+    <DisplayName>persons-v1</DisplayName>
+    <LastModifiedAt>1597870460032</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:e63c2a40fff8723f9a343c3f682e7fd793ea1dd8aeb925061d3669d859b0b64710db8a3e4cbd895f2f10611a63461ede1f6e3bf6451e3f0566f6ef8393ff630b</ManifestVersion>
+    <Policies>
+        <Policy>AM-OAS.json</Policy>
+        <Policy>AM-OAS.yaml</Policy>
+        <Policy>AM-TargetURL</Policy>
+        <Policy>EV-PersonData</Policy>
+        <Policy>RF-MissingRequiredContent</Policy>
+        <Policy>RF-NotFound</Policy>
+        <Policy>VA-Header</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>openapi://association.json</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

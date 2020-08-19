@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description></Description>
+    <FaultRules/>
+    <Flows>
+        <Flow name="persons">
+            <Description>responseCode</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-GetPersons</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-Persons</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/persons") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="persons">
+            <Description>Create person</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-PersonData</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-GetPersons</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-CreatePerson</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-UpdatePersons</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-PersonCreated</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/persons") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="persons/{id}">
+            <Description>responseCode</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-PersonId</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-GetPersons</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-GetPerson</Name>
+                </Step>
+                <Step>
+                    <Condition>person == null</Condition>
+                    <FaultRules/>
+                    <Name>RF-PersonNotFound</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-Person</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/persons/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="persons/{id}">
+            <Description>responseCode</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-PersonData</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-GetPersons</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-CreatePerson</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-UpdatePersons</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-Person</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/persons/*") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="persons/{id}">
+            <Description>responseCode</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-PersonId</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-GetPersons</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-DeletePerson</Name>
+                </Step>
+                <Step>
+                    <Condition>person == null</Condition>
+                    <FaultRules/>
+                    <Name>RF-PersonNotFound</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>KV-UpdatePersons</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-Person</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/persons/*") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="notFound">
+            <Description>responseCode</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-CatchAll</Name>
+                </Step>
+            </Response>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/persons-mock</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

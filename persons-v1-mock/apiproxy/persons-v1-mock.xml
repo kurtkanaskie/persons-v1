@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="10" name="persons-v1-mock">
+    <Basepaths>/pingstatusmock/v1</Basepaths>
+    <Basepaths>/persons-mock/v1</Basepaths>
+    <Basepaths>/v1/persons-mock</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1597868093196</CreatedAt>
+    <CreatedBy>kurtkanaskie@google.com</CreatedBy>
+    <Description>Store persons as JSON array in KVM</Description>
+    <DisplayName>pingstatus-v1-mock</DisplayName>
+    <LastModifiedAt>1597868093196</LastModifiedAt>
+    <LastModifiedBy>kurtkanaskie@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:2c8dc93d9aec26581452b9f87d53c195ebf1f266ef9b338526c9a2697f7b9bda894f6a6533b0887f88c8e81286291c44f87a6e2e679dcc0e28670d49aebf1c0c:us-east-1</ManifestVersion>
+    <Policies>
+        <Policy>AM-Person</Policy>
+        <Policy>AM-PersonCreated</Policy>
+        <Policy>AM-Persons</Policy>
+        <Policy>EV-PersonData</Policy>
+        <Policy>EV-PersonId</Policy>
+        <Policy>JS-CreatePerson</Policy>
+        <Policy>JS-DeletePerson</Policy>
+        <Policy>JS-GetPerson</Policy>
+        <Policy>KV-GetPersons</Policy>
+        <Policy>KV-UpdatePersons</Policy>
+        <Policy>RF-CatchAll</Policy>
+        <Policy>RF-PersonNotFound</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JS-CreatePerson.js</Resource>
+        <Resource>jsc://JS-DeletePerson.js</Resource>
+        <Resource>jsc://JS-GetPerson.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

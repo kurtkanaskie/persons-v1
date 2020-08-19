@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="persons-v1-mock" async="false" continueOnError="false" enabled="true" name="KV-GetPersons">
+    <DisplayName>KV-GetPersons</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <InitialEntries>
+        <Entry>
+            <Key>
+                <Parameter>persons</Parameter>
+            </Key>
+            <Value>
+{
+    "persons": [
+        {
+            "id": "P1",
+            "firstName": "Joe",
+            "lastName": "Smith",
+            "preferredName": "Joey",
+            "jobTitle": "Technical Solution Consultant",
+            "company": "Any",
+            "workAddress": "1600 Amphitheatre Parkway, Mountain View, CA, 94043",
+            "workEmail": "joesmith@any.com",
+            "workPhone": "5551234567",
+            "homeAddress": "1464 Mohr Circle, Macungie, PA, 18062",
+            "homePhone": "5551234567",
+            "homeEmail": "joesmith@any.com"
+        }
+    ]
+}                
+</Value>
+        </Entry>
+    </InitialEntries>
+    <Get assignTo="persons">
+        <Key>
+            <Parameter>persons</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

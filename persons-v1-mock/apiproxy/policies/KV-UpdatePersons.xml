@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="persons-v1-mock" async="false" continueOnError="false" enabled="true" name="KV-UpdatePersons">
+    <DisplayName>KV-UpdatePersons</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Put override="true">
+        <Key>
+            <Parameter>persons</Parameter>
+        </Key>
+        <Value ref="persons"></Value>
+    </Put>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>
