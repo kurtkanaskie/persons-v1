@@ -4,7 +4,7 @@ Sample API proxy `persons-v1` with path chaining to `persons-v1-mock`.
 Mock uses a KVM with an initial value of the data structure for Appsheet.
 
 ## Install
-### Legacy Apigee Edge - apigetool
+### Legacy Apigee Edge - [apigeetool](https://github.com/apigee/apigeetool-node)
 ```
 export ORG=YOUR_ORG
 export ENV=test
