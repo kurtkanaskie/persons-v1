@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "a1be6b27-6224-41d6-8b17-418ef24d1bee",
+		"name": "Demo1-APISheet-Persons-V1-KVM-Mock no-uuid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{HOST}}/example/v1/persons/oas.json",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/persons/oas.json",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"oas.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{HOST}}/example/v1/persons/oas.yaml",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/persons/oas.yaml",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"oas.yaml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/v1/persons",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons P12345",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"200 OK\"] = responseCode.code === 201;",
+							"if( responseCode.code === 201 ) {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"person_uuid\", jsonData.uuid);",
+							"    postman.setEnvironmentVariable(\"person_id\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"P12345\",\n    \"firstName\": \"Kurt\",\n    \"lastName\": \"Kanaskie\",\n\t\"jobTitle\": \"Technical Solution Consultant\",\n\t\"company\": \"Google\",\n\t\"workAddress\": \"1600 Amphitheatre Parkway, Mountain View, CA, 94043\",\n\t\"workEmail\": \"kurtkanaskie@google.com\",\n\t\"workPhone\": \"4846951106\",\n\t\"homeAddress\": \"1463 Mohr Circle, Macungie, PA, 18062\",\n\t\"homePhone\": \"4846951106\",\n\t\"homeEmail\": \"kurt.kanaskie@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/persons",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons/P12345",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"200 OK\"] = responseCode.code === 200;",
+							"if( responseCode.code === 200 ) {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"person_uuid\", jsonData.uuid);",
+							"    postman.setEnvironmentVariable(\"person_id\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/v1/persons/P12345",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"P12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person P12345",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"P12345\",\n    \"firstName\": \"Kurt\",\n    \"lastName\": \"Kanaskie\",\n\t\"preferredName\":\"Kurt Googler Kanaskie\",\n\t\"jobTitle\": \"Senior Technical Solution Consultant\",\n\t\"company\": \"Google\",\n\t\"workAddress\": \"1600 Amphitheatre Parkway, Mountain View, CA, 94043\",\n\t\"workEmail\": \"kurtkanaskie@google.com\",\n\t\"workPhone\": \"484-695-1106\",\n\t\"homeAddress\": \"1463 Mohr Circle, Macungie, PA, 18062\",\n\t\"homePhone\": \"484-695-1106\",\n\t\"homeEmail\": \"kurt.kanaskie@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/persons/P12345",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"P12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons/P12345",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-apikey",
+						"type": "text",
+						"value": "{{persons_apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/v1/persons/P12345",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"P12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons P23456",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"P23456\",\n    \"firstName\": \"Laura\",\n    \"lastName\": \"Adams\",\n\t\"preferredName\":\"LJ\",\n\t\"jobTitle\": \"Senior IT Operator\",\n\t\"company\": \"Lehigh Valley Hospital\",\n\t\"workAddress\": \"1 City Center, Allentown, PA, 18103\",\n\t\"workEmail\": \"lauraadams@lvhn.com\",\n\t\"workPhone\": \"2152345678\",\n    \"homeAddress\": \"1463 Mohr Circle, Macungie, PA, 18062\",\n    \"homePhone\": \"6104567890\",\n    \"homeEmail\": \"laura.adams@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/persons",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons/23456",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/v1/persons/P23456",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"P23456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons D1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"D1\",\n    \"firstName\": \"Joe\",\n    \"lastName\": \"Smith\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/persons",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Persons/D1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": "{{persons_apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/v1/persons/D1",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"persons",
+						"D1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
